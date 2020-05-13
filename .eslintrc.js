@@ -16,6 +16,9 @@ module.exports = {
         'nuxt/no-cjs-in-config': 'off',
         'indent': 'off',
         'eol-last': 0,
-        'space-before-function-paren': 0
+        'space-before-function-paren': 0,
+        'vue/html-closing-bracket-spacing': 0,
+        'vue/html-indent': 0,
+        'no-trailing-spaces': 0
     }
 }
