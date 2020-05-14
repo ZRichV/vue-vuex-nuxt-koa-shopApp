@@ -19,6 +19,11 @@ module.exports = {
         'space-before-function-paren': 0,
         'vue/html-closing-bracket-spacing': 0,
         'vue/html-indent': 0,
-        'no-trailing-spaces': 0
+        'no-trailing-spaces': 0,
+        'key-spacing': 0,
+        'vue/html-self-closing': 0,
+        'vue/singleline-html-element-content-newline': 0,
+        'semi': 0,
+        'quotes': 0
     }
 }
