@@ -24,7 +24,7 @@
             height: 26px;
             cursor: pointer;
             &:hover {
-                background: rgba(255, 255, 255, .2);
+                background: rgb(208, 215, 221);
                 &>i {
                     opacity: 1;
                 }
@@ -129,8 +129,8 @@
             .arrow {
                 width: 4px;
                 height: 4px;
-                border-bottom: 1px solid #fff;
-                border-right: 1px solid #fff;
+                border-bottom: 1px solid #FF8D02;
+                border-right: 1px solid #FF8D02;
                 transform: rotate(-45deg);
                 display: block;
                 position: absolute;

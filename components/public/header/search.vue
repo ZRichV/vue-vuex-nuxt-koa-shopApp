@@ -30,19 +30,19 @@
           </p>
           <ul class="nav">
             <li>
-              <nuxt-link to="/" class="takeout">阴阳山</nuxt-link>
+              <nuxt-link to="/" class="takeout">杰伦</nuxt-link>
             </li>
             <li>
-              <nuxt-link to="/" class="movie">窃爱</nuxt-link>
+              <nuxt-link to="/" class="movie">范特西</nuxt-link>
             </li>
             <li>
-              <nuxt-link to="/" class="hotel">算什么男人</nuxt-link>
+              <nuxt-link to="/" class="hotel">八度空间</nuxt-link>
             </li>
             <li>
-              <nuxt-link to="/" class="apartment">天涯过客</nuxt-link>
+              <nuxt-link to="/" class="apartment">叶惠美</nuxt-link>
             </li>
             <li>
-              <nuxt-link to="/" class="business">天涯过客</nuxt-link>
+              <nuxt-link to="/" class="business">七里香</nuxt-link>
             </li>
           </ul>
         </el-col>
