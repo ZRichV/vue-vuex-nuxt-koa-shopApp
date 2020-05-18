@@ -117,9 +117,10 @@ router.post('/verify', async(ctx, next) => {
     }
     // 发送邮件
     const transporter = nodeMailer.createTransport({
-            host: Email.smtp.host,
-            port: 587,
-            secure: false,
+            // host: Email.smtp.host,
+            // port: 587,
+            // secure: false,
+            service: "qq",
             auth: {
                 user: Email.smtp.user,
                 pass: Email.smtp.pass
@@ -133,10 +134,10 @@ router.post('/verify', async(ctx, next) => {
         user: ctx.request.body.username
     }
     const mailOptions = {
-        from: `"认证邮件“ <${Email.smtp.User}>`,
+        from: `"认证邮件" <${Email.smtp.user}>`,
         to: ko.email,
         subject: '周杰伦专辑',
-        code: `邀请码是${ko.code}`
+        html: `邀请码是${ko.code}`
     }
     await transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
@@ -164,7 +165,7 @@ router.get('/exit', async(ctx, next) => {
     }
 })
 
-router.get('/getuser', (ctx) => {
+router.get('/getUser', (ctx) => {
     if (ctx.isAuthenticated()) {
         const { username, email } = ctx.session.passport.user;
         ctx.body = {
