@@ -7,6 +7,7 @@ import json from 'koa-json'
 import dbConfig from './dbs/config'
 import passport from './interface/utils/passport'
 import users from './interface/users'
+import geo from './interface/geo'
 
 const Koa = require('koa')
 const consola = require('consola')
@@ -33,8 +34,6 @@ mongoose.connect(dbConfig.dbs, {
 })
 app.use(passport.initialize());
 app.use(passport.session());
-// 路由
-app.use(users.routes()).use(users.allowedMethods());
 
 async function start() {
     // Instantiate nuxt.js
@@ -51,6 +50,10 @@ async function start() {
         const builder = new Builder(nuxt)
         await builder.build()
     }
+
+    // 路由
+    app.use(users.routes()).use(users.allowedMethods());
+    app.use(geo.routes()).use(geo.allowedMethods());
 
     app.use((ctx) => {
         ctx.status = 200
