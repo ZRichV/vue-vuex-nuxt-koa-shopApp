@@ -1,7 +1,7 @@
 /* eslint-disable no-trailing-spaces */
 <template>
   <div class="m-geo">
-    <i class="el-icon-location" />Ningbo
+    <i class="el-icon-location" />{{ $store.state.geo.position.city }}
     <nuxt-link class="changeCity" to="/changeCity">Change City</nuxt-link>[Hangzhou Wenzhou jinhua]
     <template v-if="user">
       Welcome

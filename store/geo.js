@@ -1,5 +1,8 @@
 const state = () => ({
-    position: {}
+    position: {
+        province: '浙江省',
+        city: '宁波市'
+    }
 })
 
 const mutations = {
