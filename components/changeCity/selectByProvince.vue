@@ -12,6 +12,7 @@
     <el-select v-model="cvalue" :disabled="!city.length" placeholder="城市">
       <el-option v-for="item in city" :key="item.value" :label="item.label" :value="item.value" />
     </el-select>
+    <span class="name">请输入城市：</span>
     <el-autocomplete
       v-model="input"
       :fetch-suggestions="querySearchAsync"
@@ -74,7 +75,7 @@ export default {
     querySearchAsync: _.debounce(async function(query, cb) {
       const self = this;
       if (self.cities.length) {
-        cb(self.cities.filter(item => item.value.include(query) > -1));
+        cb(self.cities.filter(item => item.value.includes(query)));
       } else {
         const {
           status,
@@ -86,9 +87,9 @@ export default {
               value: item.name
             };
           });
-          cb(self.cities.filter(item => item.value.include(query) > -1));
+          cb(self.cities.filter(item => item.value.includes(query)));
         } else {
-            const res = []
+          const res = [];
           cb(res);
         }
       }

@@ -6,18 +6,26 @@
             </el-col>
         </el-row>
         <el-row>
-            <el-col :span="24"></el-col>
+            <el-col :span="24">
+                <hot-city/>
+            </el-col>
         </el-row>
         <el-row>
-            <el-col :span="24"></el-col>
+            <el-col :span="24">
+                <categroy-city/>
+            </el-col>
         </el-row>
     </div>
 </template>
 <script>
 import SelectByProvince from "@/components/changeCity/selectByProvince.vue"
+import HotCity from '@/components/changeCity/hotCity.vue';
+import CategroyCity from '@/components/changeCity/categroyCity.vue';
 export default {
     components:{
-        SelectByProvince
+        SelectByProvince,
+        HotCity,
+        CategroyCity
     }
 }
 </script>
