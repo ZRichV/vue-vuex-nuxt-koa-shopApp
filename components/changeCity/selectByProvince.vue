@@ -95,7 +95,7 @@ export default {
       }
     }, 300),
     // 搜索框和联动筛选公用的切换store中城市的方法，没有实现跳到首页功能
-    handleSelect(param) {
+    async handleSelect(param) {
       let city = "";
       if (typeof param === "string") {
         city = this.city.filter(item => item.value === param)[0].label;
@@ -105,6 +105,15 @@ export default {
       this.$store.dispatch("geo/setPosition", {
         city
       });
+      const {
+        status,
+        data: { result }
+      } = await this.$axios.get("/search/hotPlace", {
+        params: {
+          city: param.value.replace('市', '')
+        }
+      });
+      this.$store.dispatch("home/setHotPlace", status === 200 ? result : []);
     }
   }
 };

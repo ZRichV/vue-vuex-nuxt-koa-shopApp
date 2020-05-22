@@ -58,14 +58,23 @@ export default {
     }
   },
   methods: {
-    changeTheCity(val) {
+    async changeTheCity(val) {
       const self = this;
       self.$store.dispatch("geo/setPosition", {
         city: val
       });
+      const {
+        status,
+        data: { result }
+      } = await self.$axios.get("/search/hotPlace", {
+        params: {
+          city: val.replace('市', '')
+        }
+      });
+      this.$store.dispatch("home/setHotPlace", status === 200 ? result : []);
       self.$router.push({
-          path:'/'
-      })
+        path: "/"
+      });
     }
   }
 };

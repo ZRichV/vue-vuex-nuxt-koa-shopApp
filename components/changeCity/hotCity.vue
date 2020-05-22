@@ -27,10 +27,19 @@ export default {
     }
   },
   methods: {
-    selectCity(e) {
-      this.$store.dispatch("geo/setPosition", {
+    async selectCity(e) {
+      this.$store.dispatch('geo/setPosition', {
         city: e.target.textContent
       });
+      const {
+        status,
+        data: { result }
+      } = await this.$axios.get("/search/hotPlace", {
+        params: {
+          city: e.target.textContent.replace('市', '')
+        }
+      });
+      this.$store.dispatch("home/setHotPlace", status === 200 ? result : []);
     }
   }
 };
